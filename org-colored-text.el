@@ -33,7 +33,7 @@
 (require 'ol)
 
 (org-link-set-parameters
-  :type "color"
+  "color"
   :follow (lambda (_) "No follow action.")
   :export (lambda (color description backend)
             (cond
