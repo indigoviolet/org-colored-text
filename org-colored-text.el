@@ -4,8 +4,8 @@
 
 ;; Author: Venky Iyer <indigoviolet@gmail.com>, John Kitchin <jkitchin@andrew.cmu.edu>
 ;; Keywords: org, faces, text, color
-;; Package-Requires: ((ov "1.0.6"))
-;; Version: 1.0.1
+;; Package-Requires: ((emacs "24.3") (ov "1.0.6") (org "9.3"))
+;; Version: 1.0.2
 ;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,16 +29,17 @@
 
 ;;; Code:
 (require 'ov)
+(require 'org-element)
+(require 'ol)
 
-(org-add-link-type
- "color"
- (lambda (path)
-   "No follow action.")
- (lambda (color description backend)
-   (cond
-    ((eq backend 'html)
-     (let ((rgb (assoc color color-name-rgb-alist))
-	   r g b)
+(org-link-set-parameters
+  :type "color"
+  :follow (lambda (_) "No follow action.")
+  :export (lambda (color description backend)
+            (cond
+              ((eq backend 'html)
+                (let ((rgb (assoc color color-name-rgb-alist))
+	               r g b)
        (if rgb
 	   (progn
 	     (setq r (* 255 (/ (nth 1 rgb) 65535.0))
@@ -49,7 +50,7 @@
 		     (or description color)))
 	 (format "No Color RGB for %s" color)))))))
 
-(defun next-color-link (limit)
+(defun org-colored-text--next-color-link (limit)
   (when (re-search-forward
 	 "color:[a-zA-Z]\\{2,\\}" limit t)
     (forward-char -2)
@@ -84,7 +85,7 @@
 	  (lambda ()
 	    (font-lock-add-keywords
 	     nil
-	     '((next-color-link (0 'org-colored-text t)))
+	     '((org-colored-text--next-color-link (0 'org-colored-text t)))
 	     t)))
 
 

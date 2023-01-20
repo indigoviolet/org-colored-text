@@ -6,3 +6,4 @@ Changelog:
 
 - Added an org-colored-text face so that it can customized independent of link display
 - Added Package-Requires: ov, and Version
+- Clean up code and add more requires
