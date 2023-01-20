@@ -1,10 +1,12 @@
 ;;; org-colored-text.el --- Colored text for org-mode  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016  John Kitchin
+;; Copyright (C) 2016  John Kitchin, Venky Iyer
 
-;; Author: John Kitchin <jkitchin@andrew.cmu.edu>
-;; Keywords:
-
+;; Author: Venky Iyer <indigoviolet@gmail.com>, John Kitchin <jkitchin@andrew.cmu.edu>
+;; Keywords: org, faces, text, color
+;; Package-Requires: ((ov "1.0.6"))
+;; Version: 1.0.1
+;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -19,6 +21,9 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+
+;; In org-mode:
+;; [[color:green][this is green text]]
 
 ;;
 
