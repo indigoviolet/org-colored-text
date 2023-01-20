@@ -1,0 +1,6 @@
+Extracted from https://github.com/jkitchin/jmax/blob/master/org-colored-text.el
+
+Changelog:
+
+- <2023-01-20 Fri> Added an org-colored-text face so that it can customized
+  independent of link display
